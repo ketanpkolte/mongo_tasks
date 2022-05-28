@@ -1,0 +1,3 @@
+mongo atlas node_task 
+user name: node_tasks
+pwd: tasks

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks</title>
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/litera/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div>
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-5 mx-auto text-center py-4">
+          <h2 class="text-center mb-4">Perform A Task</h2>
+
+          <form method="POST" action="/add">
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="task"
+                id="task"
+                placeholder="Enter a Task"
+              />
+              <input
+                type="submit"
+                value="Add"
+                class="btn btn-lg btn-success mt-4"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- // -->
+      <!-- // -->
+      <% for(var tasks of data) { %>
+      <form action="/delete" method="POST" class="form-inline my-1">
+        <p><%= tasks.task %></p>
+        <input type="hidden" name="id" value="<%= tasks._id %>" />
+        <% if(tasks.status){ %> <% }else{ %>
+        <button type="submit" class="btn btn-primary mx-3" formaction="/update">
+          Completed
+        </button>
+        <% } %>
+
+        <button type="submit" class="btn btn-danger mx-3">Delete</button>
+      </form>
+      <% } %>
+    </div>
+  </body>
+</html>
